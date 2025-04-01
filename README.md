@@ -1,2 +1,4 @@
 # RBXTracker
-Roblox plugin to join players in games easily
+Roblox plugin for tracking players in games easily
+
+**DISCLAIMER: This plugin is made solely to help users locate other players. It is not to be used for any form of harassment.**
