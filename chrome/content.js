@@ -1,4 +1,4 @@
-await sleep(5);
+sleep(5);
 
 const COLORS = {
   GREEN: '#00b06f',
