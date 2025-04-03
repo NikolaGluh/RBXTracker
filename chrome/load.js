@@ -26,10 +26,8 @@ if (!window.RBXTracker_Loaded) {
     if (document.body.classList.contains('dark-theme')) div.classList.add('dark');
   
     const linebreak = document.createElement('br');
-  
-    console.log("DEBUG: 1");
+
     const runningGames = await waitForElm('#rbx-friends-running-games');
-    console.log("DEBUG: 2");
 
     runningGames.parentNode.insertBefore(div, runningGames);
     runningGames.parentNode.insertBefore(linebreak, runningGames);
