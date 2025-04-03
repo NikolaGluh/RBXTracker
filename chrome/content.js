@@ -53,8 +53,6 @@ const bar = document.getElementById('rbxt-bar');
 
 search.src = getURL('images/search.png');
 icon.src = getURL('images/user.png');
-console.log("512*+");
-console.log(search.src, icon.src);
 
 const color = hex => {
   bar.style.backgroundColor = hex;
