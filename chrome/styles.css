@@ -11,7 +11,6 @@
     transform: translate(225px);
     border: none;
     background-color: #0077ff;
-    color: white;
     transition: background-color 0.5s;
     width: 40px;
     height: 40px;
@@ -57,7 +56,6 @@
     position: relative;
     height: 20px;
     width: 20px;
-    color: white;
 }
 
 .dark {
