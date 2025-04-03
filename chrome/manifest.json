@@ -1,7 +1,7 @@
 {
-  "name": "SearchBlox",
-  "manifest_version": 3,
-  "version": "0.5.2",
+  "name": "RBXTracker",
+  "manifest_version": 1,
+  "version": "0.0.1",
   "description": "Search Roblox servers for a desired player",
   "icons": {
     "16": "images/16x16.png",
