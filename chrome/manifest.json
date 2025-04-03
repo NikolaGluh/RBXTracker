@@ -18,7 +18,7 @@
     "service_worker": "background.js"
   },
   "host_permissions": [
-    "https://*.roblox.com/games/"
+    "https://*.roblox.com/games/*"
   ],
   "web_accessible_resources": [
     {
