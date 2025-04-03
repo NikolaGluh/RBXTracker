@@ -1,7 +1,6 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, { url }) => {
-  console.log(1);
   if (changeInfo.status !== 'complete' || !/https:\/\/.+roblox.com\/games/g.test(url)) return;
-  console.log(2);
+
   const target = { tabId };
 
   // Checks if the panel is already injected into the DOM, and if not execute our scripts.

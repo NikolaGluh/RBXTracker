@@ -28,7 +28,7 @@ if (!window.RBXTracker_Loaded) {
   
     const linebreak = document.createElement('br');
   
-    const runningGames = await waitForElm('#rbx-running-games');
+    const runningGames = await waitForElm('rbx-friends-running-games');
   
     runningGames.parentNode.insertBefore(div, runningGames);
     runningGames.parentNode.insertBefore(linebreak, runningGames);
