@@ -1,6 +1,6 @@
 {
   "name": "RBXTracker",
-  "manifest_version": 1,
+  "manifest_version": 3,
   "version": "0.0.1",
   "description": "Search Roblox servers for a desired player",
   "icons": {
