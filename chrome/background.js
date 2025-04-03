@@ -20,5 +20,3 @@ chrome.runtime.onMessage.addListener(({ message }, { tab }) => chrome.scripting.
     target: { tabId: tab.id }, func, args: [message.place, message.id], world: 'MAIN',
   },
 ));
-
-console.log("Tracker loaded #3")

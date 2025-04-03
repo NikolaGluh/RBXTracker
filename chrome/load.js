@@ -1,6 +1,4 @@
-if (window.RBXTracker_Loaded) {
-  console.warn("Tracker already loaded");
-} else {
+if (!window.RBXTracker_Loaded) {
   window.RBXTracker_Loaded = true;
   
   function waitForElm(selector) {
@@ -35,6 +33,6 @@ if (window.RBXTracker_Loaded) {
     runningGames.parentNode.insertBefore(div, runningGames);
     runningGames.parentNode.insertBefore(linebreak, runningGames);
   })();
-  
-  console.log("Tracker loaded #2")
+} else {
+  console.warn("Tracker already loaded");
 }
