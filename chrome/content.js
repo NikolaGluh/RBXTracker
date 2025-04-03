@@ -45,21 +45,18 @@ const post = async (url, body) => {
   }
 };
 
-//const search = document.getElementById('rbxt-search');
+const search = document.getElementById('rbxt-search');
 const input = document.getElementById('rbxt-input');
 const status = document.getElementById('rbxt-status');
 const icon = document.getElementById('rbxt-user');
 const bar = document.getElementById('rbxt-bar');
 
 //search.src = getURL('images/search.png');
-const search = document.getElementById('rbxt-search');
-if (search) {
-    search.src = getURL('images/search.png');
-} else {
-    console.warn('search element not found');
-}
-
-icon.src = getURL('images/user.png');
+//icon.src = getURL('images/user.png');
+document.addEventListener('DOMContentLoaded', () => {
+  search.src = getURL('images/search.png');
+  icon.src = getURL('images/user.png');
+});
 
 const color = hex => {
   bar.style.backgroundColor = hex;
