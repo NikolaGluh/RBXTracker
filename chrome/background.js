@@ -10,7 +10,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, { url }) => {
     await chrome.scripting.insertCSS({ target, files: ['styles.css'] });
 
     await chrome.scripting.executeScript({ target, files: ['load.js'] });
-    //chrome.scripting.executeScript({ target, files: ['content.js'] });
+    chrome.scripting.executeScript({ target, files: ['content.js'] });
   });
 });
 
