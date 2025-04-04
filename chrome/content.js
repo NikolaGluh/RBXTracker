@@ -26,6 +26,22 @@ const get = async (url) => {
   }
 };
 
+async function getUserFromUsername(username) {
+  const response = await fetch('https://users.roblox.com/v1/usernames/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      usernames: [username],
+      excludeBannedUsers: false,
+    }),
+  });
+
+  const data = await response.json();
+  return data.data && data.data.length > 0 ? data.data[0] : null;
+}
+
 const post = async (url, body) => {
   try {
     const request = await fetch(`https://${url}`, {
@@ -82,7 +98,7 @@ const allThumbnails = new Map();
 
 async function fetchServers(place = '', cursor = '', attempts = 0) {
   const { nextPageCursor, data } = await get(`games.roblox.com/v1/games/${place}/servers/Public?limit=100&cursor=${cursor}`);
-
+  console.log("Testing 1");
   if (attempts >= 30) {
     foundAllServers = true;
     return;
@@ -92,7 +108,7 @@ async function fetchServers(place = '', cursor = '', attempts = 0) {
     await sleep(1);
     return fetchServers(place, cursor, attempts + 1);
   }
-
+  console.log("Testing 2");
   data.forEach((server) => {
     server.playerTokens.forEach((playerToken) => {
       playersCount += 1;
@@ -111,7 +127,8 @@ async function fetchServers(place = '', cursor = '', attempts = 0) {
     foundAllServers = true;
     return;
   }
-
+  console.log("Testing 3");
+  await sleep(1);
   return fetchServers(place, nextPageCursor);
 }
 
@@ -287,17 +304,30 @@ search.addEventListener('click', async event => {
 
   searching = true;
 
-  const user = await get(`api.roblox.com/users/${/^\d+$/.test(input.value) ? input.value : `get-by-username?username=${input.value}`}`);
+  const inputValue = input.value;
+  let user = null;
 
-  if (user.errors || user.errorMessage) {
+  if (/^\d+$/.test(inputValue)) { // Input is a user id
+    const res = await fetch(`https://users.roblox.com/v1/users/${inputValue}`);
+    user = await res.json();
+  } else { // Input is a username
+    user = await getUserFromUsername(inputValue);
+  }
+
+  if (!user) {
     icon.src = USER.ERROR;
     searching = false;
     status.innerText = 'User not found!';
+    console.error("User not found!");
     return;
   }
 
   const [, place] = window.location.href.match(/games\/(\d+)\//);
-  const { data: [{ imageUrl }] } = await get(`thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${user.Id}&size=150x150&format=Png&isCircular=false`);
+  const { data: [{ imageUrl }] } = await get(`thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${user.id}&size=150x150&format=Png&isCircular=false`);
+
+  // Debugging
+  console.log(user);
+  console.log(imageUrl);
 
   highlighted.forEach((item) => {
     item.remove();
