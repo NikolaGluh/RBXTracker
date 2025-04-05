@@ -1,19 +1,19 @@
 
 #rbxt-panel {
     background-color: white;
-    height: 100px;
-    width: 300px;
+    height: 50px;
+    width: 225px;
 }
 
 #rbxt-search {
     z-index: 1;
     position: absolute;
-    transform: translate(225px);
+    transform: translate(225px, -22px);
     border: none;
     background-color: #0077ff;
     transition: background-color 0.5s;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 #rbxt-search:disabled {
@@ -22,8 +22,9 @@
 
 #rbxt-input {
     position: absolute;
-    width: 180px;
-    transform: translate(40px, 14px);
+    width: 205px;
+    height: 40px;
+    transform: translate(10px, -17px);
     box-sizing: 0;
     outline: none !important;
     box-shadow: none !important;
@@ -38,8 +39,8 @@
 
 #rbxt-progress {
     position: absolute;
-    transform: translate(0px, 43px);
-    width: 226px;
+    transform: translate(0px, 21px);
+    width: 225px;
 }
 
 #rbxt-bar {
@@ -56,6 +57,11 @@
     position: relative;
     height: 20px;
     width: 20px;
+}
+
+#rbxt-user-header {
+    position: relative;
+    transform: translate(0px, -28px);
 }
 
 .dark {
