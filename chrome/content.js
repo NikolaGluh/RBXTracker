@@ -190,31 +190,31 @@ async function findTarget(imageUrl, place) {
       color(COLORS.GREEN);
       setTimeout(() => color(COLORS.BLUE), 1000);
   
-      const first = document.querySelectorAll('.rbx-game-server-item')[0] || document.querySelectorAll('#rbx-running-games > div.section-content-off.empty-game-instances-container > p')[0];
-      
-      if (first.className == 'no-servers-message') {
-        first.parentNode.style['display'] = 'flex';
-        first.parentNode.style['flex-direction'] = 'column';
-      }
+      const first = document.querySelectorAll('#rbxt-panel')[0]
 
-      const item = document.createElement('li');
+      const item = document.createElement('div');
   
       const thumbnails = allThumbnails.get(targetServerId);
   
       item.className = 'stack-row rbx-game-server-item highlighted';
       item.innerHTML = `
-        <div class="section-left rbx-game-server-details'">
+        <div class="section-left rbx-game-server-details" style="transform: translateY(10px);">
         <div class="text-info rbx-game-status rbx-game-server-status'">${thumbnails.length} of ${maxPlayers} people max</div>
         <span>
         <button data-id="${targetServerId}" type="button" class="btn-full-width btn-control-xs rbx-game-server-join btn-primary-md btn-min-width">Join</button>
         </span>
         </div>
-        <div class="section-right rbx-game-server-players">
+        <div class="section-right rbx-game-server-players" style="transform: translateY(10px);">
         ${thumbnails.map(url => `<span class="avatar avatar-headshot-sm player-avatar"><span class="thumbnail-2d-container avatar-card-image"><img src="${url}"></span></span>`).join('')}
         </div>`;
+      item.style.marginTop = '60px';
+      item.style.marginBottom = '30px';
   
-      first.parentNode.insertBefore(item, first);
+      first.parentNode.insertBefore(item, first.nextSibling);
       highlighted.push(item);
+
+      const br = document.createElement('br');
+      first.parentNode.insertBefore(br, item.nextSibling);
   
       const [join] = document.querySelectorAll(`[data-id="${targetServerId}"]`);
       join.onclick = () => chrome.runtime.sendMessage({ message: { place, id: targetServerId } });
