@@ -1,99 +1,101 @@
-
 #rbxt-panel {
     background-color: white;
-    height: 52px;
     width: 225px;
-}
-
-#rbxt-search {
-    z-index: 1;
-    position: absolute;
-    transform: translate(225px, -20px);
-    border: none;
-    background-color: #0077ff;
-    transition: background-color 0.5s;
-    width: 52px;
     height: 52px;
-}
-
-#rbxt-search:disabled {
-    opacity: 50%;
-}
-
-#rbxt-input {
+    position: relative;
+  }
+  
+  #rbxt-form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #rbxt-input {
     position: absolute;
     width: 205px;
     height: 40px;
-    transform: translate(10px, -14px);
-    box-sizing: content-box;
+    top: 6px;
+    left: 10px;
+    box-sizing: border-box;
     outline: none !important;
-    box-shadow: none !important;
     border: none !important;
     background-color: inherit;
-}
-
-#rbxt-status {
+  }
+  
+  #rbxt-search {
     position: absolute;
-    transform: translate(320px, 14px);
-}
-
-#rbxt-progress {
-    position: absolute;
-    transform: translate(0px, 0px);
-    width: 225px;
-}
-
-#rbxt-bar {
+    top: 0;
+    left: 225px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    background-color: #0077ff;
+    transition: background-color 0.5s;
+    z-index: 1;
+  }
+  
+  #rbxt-search:disabled {
+    opacity: 50%;
+  }
+  
+  #rbxt-user-header {
     position: relative;
+    transform: translateY(-24px);
+    font-weight: bold;
+  }
+  
+  #rbxt-user {
+    height: 20px;
+    width: 20px;
+  }
+  
+  #rbxt-progress {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 225px;
+  }
+  
+  #rbxt-bar {
     height: 7px;
     width: 0%;
     background-color: #0077ff;
     transition: width 0.5s, background-color 0.5s;
-    -moz-transition: width 0.5s, background-color 0.5s;
-    -webkit-transition: width 0.5s, background-color 0.5s;
-}
-
-#rbxt-user {
-    position: relative;
-    height: 20px;
-    width: 20px;
-}
-
-#rbxt-user-header {
-    position: relative;
-    transform: translate(0px, -24px);
-}
-
-.dark {
+  }
+  
+  #rbxt-status {
+    position: absolute;
+    transform: translate(320px, 14px);
+  }
+  
+  .dark {
     background-color: #393b3d !important;
-}
-
-.invalid {
+  }
+  
+  .invalid {
     border-color: red !important;
-}
-
-.highlighted {
+  }
+  
+  .highlighted {
     border: solid #00b06f !important;
-}
-
-#rbxt-input::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
+  }
+  
+  #rbxt-input::-webkit-input-placeholder {
     color: grey;
     font-weight: 400 !important;
-}
-
-#rbxt-input:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
+  }
+  
+  #rbxt-input:-moz-placeholder {
     color: gray;
     font-weight: 400 !important;
-}
-
-.dark::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
+  }
+  
+  .dark::-webkit-input-placeholder {
     color: #757575 !important;
-}
-
-.dark:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
+  }
+  
+  .dark:-moz-placeholder {
     color: #757575 !important;
-}
+  }
+  
