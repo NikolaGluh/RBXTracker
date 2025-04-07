@@ -3,6 +3,7 @@
     width: 225px;
     height: 52px;
     position: relative;
+    transform: translateY(15px);
   }
   
   #rbxt-form {
@@ -41,7 +42,7 @@
   
   #rbxt-user-header {
     position: relative;
-    transform: translateY(-24px);
+    transform: translateY(-30px);
     font-weight: bold;
   }
   
